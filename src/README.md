@@ -1,4 +1,4 @@
-# traffic_sota
+# Predicting Congestion Propagation Based on Traffic Prediction Algorithms
 An implementation of existing DCRNN, STGCN, MW-TGC algorithm utilizing dgl and Pytorch.
 
 ### Getting started
