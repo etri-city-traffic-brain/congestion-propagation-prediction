@@ -1,7 +1,7 @@
 # traffic_sota
 An implementation of existing DCRNN, STGCN, MW-TGC algorithm utilizing dgl and Pytorch.
 
-### Getting startetd
+### Getting started
 It will be upload requirements.txt file later.
 
 Clone repo and install requirements.txt
