@@ -1,0 +1,96 @@
+2021-11-18 15:02:45,609 - model.pytorch.dcrnn_supervisor - INFO - Log directory: data/model/dcrnn_DR_2_h_12_64-64_lr_0.01_bs_64_1118150245/
+2021-11-18 15:03:21,539 - model.pytorch.dcrnn_supervisor - INFO - Model created
+2021-11-18 15:03:21,540 - model.pytorch.dcrnn_supervisor - INFO - Start training ...
+2021-11-18 15:03:21,540 - model.pytorch.dcrnn_supervisor - INFO - num_batches:570
+2021-11-18 15:03:32,006 - model.pytorch.dcrnn_supervisor - INFO - Total trainable parameters 372353
+2021-11-18 18:47:32,403 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2021-11-18 18:47:32,406 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2021-11-18 19:04:58,740 - model.pytorch.dcrnn_supervisor - INFO - Epoch [0/1000] (570) train_mae: 0.9997, val_mae: 2.1904, lr: 0.010000, 14497.2s
+2021-11-18 19:04:58,743 - model.pytorch.dcrnn_supervisor - INFO - Saved model at 0
+2021-11-18 19:04:58,743 - model.pytorch.dcrnn_supervisor - INFO - Val loss decrease from inf to 2.1904, saving to models/bay_best.tar
+2021-11-18 22:44:35,066 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2021-11-18 22:44:35,066 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2021-11-18 23:02:02,768 - model.pytorch.dcrnn_supervisor - INFO - Epoch [1/1000] (1140) train_mae: 0.8652, val_mae: 2.1278, lr: 0.010000, 14224.0s
+2021-11-18 23:02:02,772 - model.pytorch.dcrnn_supervisor - INFO - Saved model at 1
+2021-11-18 23:02:02,772 - model.pytorch.dcrnn_supervisor - INFO - Val loss decrease from 2.1904 to 2.1278, saving to models/bay_best.tar
+2021-11-19 02:43:08,974 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2021-11-19 02:43:08,974 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2021-11-19 03:00:33,489 - model.pytorch.dcrnn_supervisor - INFO - Epoch [2/1000] (1710) train_mae: 0.8544, val_mae: 2.0492, lr: 0.010000, 14310.7s
+2021-11-19 03:00:33,515 - model.pytorch.dcrnn_supervisor - INFO - Saved model at 2
+2021-11-19 03:00:33,515 - model.pytorch.dcrnn_supervisor - INFO - Val loss decrease from 2.1278 to 2.0492, saving to models/bay_best.tar
+2021-11-19 06:40:49,601 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2021-11-19 06:40:49,601 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2021-11-19 06:58:15,495 - model.pytorch.dcrnn_supervisor - INFO - Epoch [3/1000] (2280) train_mae: 0.8444, val_mae: 2.1102, lr: 0.010000, 14262.0s
+2021-11-19 10:35:06,892 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2021-11-19 10:35:06,893 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2021-11-19 10:51:55,776 - model.pytorch.dcrnn_supervisor - INFO - Epoch [4/1000] (2850) train_mae: 0.8356, val_mae: 1.9404, lr: 0.010000, 14020.3s
+2021-11-19 10:51:55,790 - model.pytorch.dcrnn_supervisor - INFO - Saved model at 4
+2021-11-19 10:51:55,790 - model.pytorch.dcrnn_supervisor - INFO - Val loss decrease from 2.0492 to 1.9404, saving to models/bay_best.tar
+2021-11-19 14:29:00,533 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2021-11-19 14:29:00,534 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2021-11-19 14:46:19,543 - model.pytorch.dcrnn_supervisor - INFO - Epoch [5/1000] (3420) train_mae: 0.8313, val_mae: 1.8976, lr: 0.010000, 14063.8s
+2021-11-19 14:46:19,561 - model.pytorch.dcrnn_supervisor - INFO - Saved model at 5
+2021-11-19 14:46:19,561 - model.pytorch.dcrnn_supervisor - INFO - Val loss decrease from 1.9404 to 1.8976, saving to models/bay_best.tar
+2021-11-19 18:24:38,837 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2021-11-19 18:24:38,838 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2021-11-19 18:42:06,099 - model.pytorch.dcrnn_supervisor - INFO - Epoch [6/1000] (3990) train_mae: 0.8268, val_mae: 1.8708, lr: 0.010000, 14146.5s
+2021-11-19 18:42:06,104 - model.pytorch.dcrnn_supervisor - INFO - Saved model at 6
+2021-11-19 18:42:06,104 - model.pytorch.dcrnn_supervisor - INFO - Val loss decrease from 1.8976 to 1.8708, saving to models/bay_best.tar
+2021-11-19 22:20:09,140 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2021-11-19 22:20:09,140 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2021-11-19 22:37:31,714 - model.pytorch.dcrnn_supervisor - INFO - Epoch [7/1000] (4560) train_mae: 0.8231, val_mae: 1.8520, lr: 0.010000, 14125.6s
+2021-11-19 22:37:31,739 - model.pytorch.dcrnn_supervisor - INFO - Saved model at 7
+2021-11-19 22:37:31,739 - model.pytorch.dcrnn_supervisor - INFO - Val loss decrease from 1.8708 to 1.8520, saving to models/bay_best.tar
+2021-11-20 02:15:05,998 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2021-11-20 02:15:05,998 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2021-11-20 02:32:29,619 - model.pytorch.dcrnn_supervisor - INFO - Epoch [8/1000] (5130) train_mae: 0.8196, val_mae: 1.8201, lr: 0.010000, 14097.9s
+2021-11-20 02:32:29,625 - model.pytorch.dcrnn_supervisor - INFO - Saved model at 8
+2021-11-20 02:32:29,625 - model.pytorch.dcrnn_supervisor - INFO - Val loss decrease from 1.8520 to 1.8201, saving to models/bay_best.tar
+2021-11-20 06:10:16,518 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2021-11-20 06:10:16,519 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2021-11-20 06:27:35,136 - model.pytorch.dcrnn_supervisor - INFO - Epoch [9/1000] (5700) train_mae: 0.8180, val_mae: 1.8033, lr: 0.010000, 14105.5s
+2021-11-20 06:27:35,162 - model.pytorch.dcrnn_supervisor - INFO - Saved model at 9
+2021-11-20 06:27:35,162 - model.pytorch.dcrnn_supervisor - INFO - Val loss decrease from 1.8201 to 1.8033, saving to models/bay_best.tar
+2021-11-20 10:05:02,588 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2021-11-20 10:05:02,588 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2021-11-20 10:22:21,647 - model.pytorch.dcrnn_supervisor - INFO - Epoch [10/1000] (6270) train_mae: 0.8152, val_mae: 1.7957, lr: 0.010000, 14086.5s
+2021-11-20 10:22:21,650 - model.pytorch.dcrnn_supervisor - INFO - Saved model at 10
+2021-11-20 10:22:21,651 - model.pytorch.dcrnn_supervisor - INFO - Val loss decrease from 1.8033 to 1.7957, saving to models/bay_best.tar
+2021-11-20 13:58:15,056 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2021-11-20 13:58:15,057 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2021-11-20 14:15:39,094 - model.pytorch.dcrnn_supervisor - INFO - Epoch [11/1000] (6840) train_mae: 0.8160, val_mae: 1.8791, lr: 0.010000, 13997.4s
+2021-11-20 17:54:00,988 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2021-11-20 17:54:00,989 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2021-11-20 18:11:32,898 - model.pytorch.dcrnn_supervisor - INFO - Epoch [12/1000] (7410) train_mae: 0.8149, val_mae: 1.9402, lr: 0.010000, 14153.8s
+2021-11-20 21:45:21,021 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2021-11-20 21:45:21,022 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2021-11-20 22:01:17,525 - model.pytorch.dcrnn_supervisor - INFO - Epoch [13/1000] (7980) train_mae: 0.8151, val_mae: 1.8515, lr: 0.010000, 13784.6s
+2021-11-21 01:21:03,413 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2021-11-21 01:21:03,413 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2021-11-21 01:37:11,293 - model.pytorch.dcrnn_supervisor - INFO - Epoch [14/1000] (8550) train_mae: 0.8146, val_mae: 1.8779, lr: 0.010000, 12953.8s
+2021-11-21 04:56:56,953 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2021-11-21 04:56:56,954 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2021-11-21 05:12:52,937 - model.pytorch.dcrnn_supervisor - INFO - Epoch [15/1000] (9120) train_mae: 0.8179, val_mae: 2.0161, lr: 0.010000, 12941.6s
+2021-11-21 08:32:56,026 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2021-11-21 08:32:56,026 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2021-11-21 08:49:01,301 - model.pytorch.dcrnn_supervisor - INFO - Epoch [16/1000] (9690) train_mae: 0.8195, val_mae: 1.8224, lr: 0.010000, 12968.4s
+2021-11-21 12:09:14,156 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2021-11-21 12:09:14,156 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2021-11-21 12:25:10,313 - model.pytorch.dcrnn_supervisor - INFO - Epoch [17/1000] (10260) train_mae: 0.8238, val_mae: 1.8165, lr: 0.010000, 12969.0s
+2021-11-21 15:45:36,173 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2021-11-21 15:45:36,173 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2021-11-21 16:01:36,039 - model.pytorch.dcrnn_supervisor - INFO - Epoch [18/1000] (10830) train_mae: 0.8345, val_mae: 1.9174, lr: 0.010000, 12985.7s
+2021-11-21 19:21:29,652 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2021-11-21 19:21:29,653 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2021-11-21 19:37:25,197 - model.pytorch.dcrnn_supervisor - INFO - Epoch [19/1000] (11400) train_mae: 0.8346, val_mae: 1.8974, lr: 0.000100, 12949.2s
+2021-11-21 22:57:37,419 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2021-11-21 22:57:37,419 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2021-11-21 23:13:32,387 - model.pytorch.dcrnn_supervisor - INFO - Epoch [20/1000] (11970) train_mae: 0.8503, val_mae: 1.7544, lr: 0.001000, 12967.2s
+2021-11-21 23:13:32,391 - model.pytorch.dcrnn_supervisor - INFO - Saved model at 20
+2021-11-21 23:13:32,391 - model.pytorch.dcrnn_supervisor - INFO - Val loss decrease from 1.7957 to 1.7544, saving to models/bay_best.tar
+2021-11-22 02:33:47,688 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2021-11-22 02:33:47,689 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2021-11-22 02:49:43,511 - model.pytorch.dcrnn_supervisor - INFO - Epoch [21/1000] (12540) train_mae: 0.8602, val_mae: 1.8088, lr: 0.001000, 12971.1s
+2021-11-22 06:09:55,475 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2021-11-22 06:09:55,475 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2021-11-22 06:25:56,586 - model.pytorch.dcrnn_supervisor - INFO - Epoch [22/1000] (13110) train_mae: 0.8856, val_mae: 1.8702, lr: 0.001000, 12973.1s

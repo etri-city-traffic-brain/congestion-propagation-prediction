@@ -1,0 +1,193 @@
+
+1. Data Preparation
+----------------------------------------------------
+python -m scripts.generate_training_data --output_dir=data/CHUNHO --traffic_df_filename=data/chunho_tm.csv
+
+2. Graph Construction
+----------------------------------------------------
+python -m scripts.gen_adj_mx  --sensor_ids_filename=data/sensor_graph/chunho_link_ids.txt --distances_filename=etri-data/chunho_sm_distances_euc.csv --normalized_k=0.1 --output_pkl_filename=data/sensor_graph/euclidean_adj_mx.pkl
+
+python -m scripts.gen_adj_mx  --sensor_ids_filename=data/sensor_graph/chunho_link_ids.txt --distances_filename=etri-data/chunho_sm_distances_path_start.csv --normalized_k=0.1 --output_pkl_filename=data/sensor_graph/path_start_adj_mx.pkl
+
+python -m scripts.gen_adj_mx  --sensor_ids_filename=data/sensor_graph/chunho_link_ids.txt --distances_filename=etri-data/chunho_sm_distances_path_center.csv --normalized_k=0.1 --output_pkl_filename=data/sensor_graph/path_center_adj_mx.pkl
+
+python -m scripts.gen_adj_mx  --sensor_ids_filename=data/sensor_graph/chunho_link_ids.txt --distances_filename=etri-data/chunho_sm_distances_path_center.csv --normalized_k=0.0 --output_pkl_filename=data/sensor_graph/center_adj_mx_zero_k.pkl
+
+python -m scripts.gen_adj_mx  --sensor_ids_filename=data/sensor_graph/chunho_link_ids.txt --distances_filename=etri-data/chunho_sm_distances_path_start.csv --normalized_k=0.0 --output_pkl_filename=data/sensor_graph/start_adj_mx.pkl
+
+python -m scripts.gen_adj_mx  --sensor_ids_filename=data/sensor_graph/chunho_link_ids.txt --distances_filename=etri-data/chunho_sm_distances_path_start.csv --normalized_k=0.1 --output_pkl_filename=data/sensor_graph/center_adj_mx.pkl
+
+python -m scripts.gen_adj_mx  --sensor_ids_filename=data/sensor_graph/chunho_link_ids.txt --distances_filename=etri-data/chunho_sm_distances_path_start.csv --normalized_k=0.1 --output_pkl_filename=data/sensor_graph/center_adj_mx.pkl
+
+
+
+3. Run the Pre-trained Model on METR-LA
+----------------------------------------------------
+config_[숫자].yaml 별로 테스트 해 보자!
+python run_demo.py --config_filename=data/model/dcrnn_DR_2_h_12_64-64_lr_0.01_bs_64_0611182509/config_0.yaml --output_filename=eclidean_prediction_chunho.npz
+python run_demo.py --config_filename=data/model/dcrnn_DR_2_h_12_64-64_lr_0.01_bs_64_0611182509/config_50.yaml --output_filename=eclidean_prediction_chunho.npz
+
+
+python run_demo.py --config_filename=data/model/dcrnn_DR_2_h_12_64-64_lr_0.01_bs_64_0612103201/config_42.yaml --output_filename=path_start_prediction_chunho.npz
+python run_demo.py --config_filename=data/model/dcrnn_DR_2_h_12_64-64_lr_0.01_bs_64_0612163147/config_41.yaml --output_filename=path_center_prediction_chunho.npz
+
+
+
+
+k=0
+===
+python run_demo.py --config_filename=data/model/dcrnn_DR_2_h_12_64-64_lr_0.01_bs_64_0613151855/config_40.yaml --output_filename=path_start_k0_prediction_chunho.npz
+python run_demo.py --config_filename=data/model/dcrnn_DR_2_h_12_64-64_lr_0.01_bs_64_0614093916/config_31.yaml --output_filename=path_center_k0_prediction_chunho.npz
+
+python run_demo.py --config_filename=data/model/dcrnn_DR_2_h_12_64-64_lr_0.01_bs_64_0619094119/config_44.yaml --output_filename=path_start_k0_prediction_chunho.npz
+
+
+python run_demo.py --config_filename=data/model/dcrnn_DR_2_h_12_64-64_lr_0.01_bs_64_0619154544/config_31.yaml --output_filename=path_center_k0_prediction_chunho.npz
+
+
+4. Model Training
+----------------------------------------------------
+python dcrnn_train.py --config_filename=data/model/dcrnn_chunho_euclidean.yaml
+python dcrnn_train.py --config_filename=data/model/dcrnn_chunho_path_start.yaml
+python dcrnn_train.py --config_filename=data/model/dcrnn_chunho_path_center.yaml
+python dcrnn_train.py --config_filename=data/model/dcrnn_chunho_start.yaml
+python dcrnn_train.py --config_filename=data/model/dcrnn_chunho_center.yaml
+
+
+config_0.yaml: eclidean_prediction_chunho 결과
+=====
+2019-06-12 09:48:27,265 - INFO - Horizon 01, MAE: 3.08, MAPE: 0.1334, RMSE: 5.07
+2019-06-12 09:48:27,332 - INFO - Horizon 02, MAE: 3.71, MAPE: 0.1633, RMSE: 5.71
+2019-06-12 09:48:27,400 - INFO - Horizon 03, MAE: 4.16, MAPE: 0.1849, RMSE: 6.20
+2019-06-12 09:48:27,467 - INFO - Horizon 04, MAE: 4.50, MAPE: 0.2015, RMSE: 6.56
+2019-06-12 09:48:27,535 - INFO - Horizon 05, MAE: 4.74, MAPE: 0.2135, RMSE: 6.81
+2019-06-12 09:48:27,602 - INFO - Horizon 06, MAE: 4.93, MAPE: 0.2232, RMSE: 7.02
+2019-06-12 09:48:27,670 - INFO - Horizon 07, MAE: 5.10, MAPE: 0.2314, RMSE: 7.20
+2019-06-12 09:48:27,738 - INFO - Horizon 08, MAE: 5.22, MAPE: 0.2372, RMSE: 7.35
+2019-06-12 09:48:27,805 - INFO - Horizon 09, MAE: 5.33, MAPE: 0.2427, RMSE: 7.48
+2019-06-12 09:48:27,868 - INFO - Horizon 10, MAE: 5.44, MAPE: 0.2476, RMSE: 7.60
+2019-06-12 09:48:27,930 - INFO - Horizon 11, MAE: 5.53, MAPE: 0.2520, RMSE: 7.71
+2019-06-12 09:48:27,992 - INFO - Horizon 12, MAE: 5.61, MAPE: 0.2559, RMSE: 7.81
+
+config_50.yaml: eclidean_prediction_chunho 결과
+===
+2019-06-12 09:52:07,748 - INFO - Horizon 01, MAE: 2.99, MAPE: 0.1297, RMSE: 4.97
+2019-06-12 09:52:07,818 - INFO - Horizon 02, MAE: 3.53, MAPE: 0.1555, RMSE: 5.43
+2019-06-12 09:52:07,886 - INFO - Horizon 03, MAE: 3.85, MAPE: 0.1711, RMSE: 5.71
+2019-06-12 09:52:07,954 - INFO - Horizon 04, MAE: 4.06, MAPE: 0.1815, RMSE: 5.88
+2019-06-12 09:52:08,021 - INFO - Horizon 05, MAE: 4.17, MAPE: 0.1878, RMSE: 5.99
+2019-06-12 09:52:08,088 - INFO - Horizon 06, MAE: 4.25, MAPE: 0.1921, RMSE: 6.06
+2019-06-12 09:52:08,155 - INFO - Horizon 07, MAE: 4.31, MAPE: 0.1953, RMSE: 6.11
+2019-06-12 09:52:08,222 - INFO - Horizon 08, MAE: 4.34, MAPE: 0.1971, RMSE: 6.14
+2019-06-12 09:52:08,289 - INFO - Horizon 09, MAE: 4.37, MAPE: 0.1987, RMSE: 6.17
+2019-06-12 09:52:08,352 - INFO - Horizon 10, MAE: 4.39, MAPE: 0.1999, RMSE: 6.19
+2019-06-12 09:52:08,414 - INFO - Horizon 11, MAE: 4.41, MAPE: 0.2008, RMSE: 6.21
+2019-06-12 09:52:08,476 - INFO - Horizon 12, MAE: 4.42, MAPE: 0.2015, RMSE: 6.22
+
+path_start 결과
+===
+2019-06-12 15:43:36,754 - INFO - Horizon 01, MAE: 2.99, MAPE: 0.1296, RMSE: 4.97
+2019-06-12 15:43:36,823 - INFO - Horizon 02, MAE: 3.53, MAPE: 0.1555, RMSE: 5.43
+2019-06-12 15:43:36,891 - INFO - Horizon 03, MAE: 3.85, MAPE: 0.1710, RMSE: 5.71
+2019-06-12 15:43:36,958 - INFO - Horizon 04, MAE: 4.06, MAPE: 0.1814, RMSE: 5.89
+2019-06-12 15:43:37,026 - INFO - Horizon 05, MAE: 4.18, MAPE: 0.1877, RMSE: 5.99
+2019-06-12 15:43:37,094 - INFO - Horizon 06, MAE: 4.25, MAPE: 0.1920, RMSE: 6.06
+2019-06-12 15:43:37,162 - INFO - Horizon 07, MAE: 4.31, MAPE: 0.1952, RMSE: 6.12
+2019-06-12 15:43:37,230 - INFO - Horizon 08, MAE: 4.34, MAPE: 0.1970, RMSE: 6.14
+2019-06-12 15:43:37,298 - INFO - Horizon 09, MAE: 4.37, MAPE: 0.1985, RMSE: 6.17
+2019-06-12 15:43:37,362 - INFO - Horizon 10, MAE: 4.39, MAPE: 0.1997, RMSE: 6.19
+2019-06-12 15:43:37,424 - INFO - Horizon 11, MAE: 4.41, MAPE: 0.2006, RMSE: 6.21
+2019-06-12 15:43:37,487 - INFO - Horizon 12, MAE: 4.42, MAPE: 0.2013, RMSE: 6.22
+
+path_start k=0 결과
+===
+2019-06-13 20:30:18,553 - INFO - Horizon 01, MAE: 2.99, MAPE: 0.1297, RMSE: 4.97
+2019-06-13 20:30:18,621 - INFO - Horizon 02, MAE: 3.53, MAPE: 0.1555, RMSE: 5.43
+2019-06-13 20:30:18,688 - INFO - Horizon 03, MAE: 3.85, MAPE: 0.1710, RMSE: 5.71
+2019-06-13 20:30:18,755 - INFO - Horizon 04, MAE: 4.06, MAPE: 0.1815, RMSE: 5.88
+2019-06-13 20:30:18,822 - INFO - Horizon 05, MAE: 4.18, MAPE: 0.1878, RMSE: 5.99
+2019-06-13 20:30:18,889 - INFO - Horizon 06, MAE: 4.26, MAPE: 0.1921, RMSE: 6.06
+2019-06-13 20:30:18,956 - INFO - Horizon 07, MAE: 4.31, MAPE: 0.1954, RMSE: 6.11
+2019-06-13 20:30:19,024 - INFO - Horizon 08, MAE: 4.34, MAPE: 0.1971, RMSE: 6.14
+2019-06-13 20:30:19,091 - INFO - Horizon 09, MAE: 4.37, MAPE: 0.1986, RMSE: 6.17
+2019-06-13 20:30:19,153 - INFO - Horizon 10, MAE: 4.39, MAPE: 0.1998, RMSE: 6.19
+2019-06-13 20:30:19,215 - INFO - Horizon 11, MAE: 4.41, MAPE: 0.2007, RMSE: 6.21
+2019-06-13 20:30:19,277 - INFO - Horizon 12, MAE: 4.42, MAPE: 0.2014, RMSE: 6.22
+
+path_center 결과
+===
+2019-06-12 20:57:13,285 - INFO - Horizon 01, MAE: 2.99, MAPE: 0.1297, RMSE: 4.97
+2019-06-12 20:57:13,355 - INFO - Horizon 02, MAE: 3.53, MAPE: 0.1556, RMSE: 5.43
+2019-06-12 20:57:13,424 - INFO - Horizon 03, MAE: 3.85, MAPE: 0.1711, RMSE: 5.71
+2019-06-12 20:57:13,491 - INFO - Horizon 04, MAE: 4.06, MAPE: 0.1815, RMSE: 5.89
+2019-06-12 20:57:13,559 - INFO - Horizon 05, MAE: 4.18, MAPE: 0.1878, RMSE: 5.99
+2019-06-12 20:57:13,626 - INFO - Horizon 06, MAE: 4.26, MAPE: 0.1921, RMSE: 6.07
+2019-06-12 20:57:13,693 - INFO - Horizon 07, MAE: 4.32, MAPE: 0.1953, RMSE: 6.12
+2019-06-12 20:57:13,760 - INFO - Horizon 08, MAE: 4.35, MAPE: 0.1971, RMSE: 6.15
+2019-06-12 20:57:13,827 - INFO - Horizon 09, MAE: 4.38, MAPE: 0.1986, RMSE: 6.18
+2019-06-12 20:57:13,890 - INFO - Horizon 10, MAE: 4.40, MAPE: 0.1997, RMSE: 6.20
+2019-06-12 20:57:13,952 - INFO - Horizon 11, MAE: 4.41, MAPE: 0.2006, RMSE: 6.22
+2019-06-12 20:57:14,014 - INFO - Horizon 12, MAE: 4.43, MAPE: 0.2014, RMSE: 6.23
+
+path_center_k=0 결과
+===
+2019-06-14 13:36:11,993 - INFO - Horizon 01, MAE: 2.99, MAPE: 0.1297, RMSE: 4.97
+2019-06-14 13:36:12,061 - INFO - Horizon 02, MAE: 3.53, MAPE: 0.1554, RMSE: 5.43
+2019-06-14 13:36:12,130 - INFO - Horizon 03, MAE: 3.85, MAPE: 0.1710, RMSE: 5.71
+2019-06-14 13:36:12,197 - INFO - Horizon 04, MAE: 4.06, MAPE: 0.1814, RMSE: 5.89
+2019-06-14 13:36:12,265 - INFO - Horizon 05, MAE: 4.18, MAPE: 0.1877, RMSE: 6.00
+2019-06-14 13:36:12,333 - INFO - Horizon 06, MAE: 4.26, MAPE: 0.1920, RMSE: 6.07
+2019-06-14 13:36:12,401 - INFO - Horizon 07, MAE: 4.31, MAPE: 0.1952, RMSE: 6.13
+2019-06-14 13:36:12,469 - INFO - Horizon 08, MAE: 4.35, MAPE: 0.1970, RMSE: 6.16
+2019-06-14 13:36:12,537 - INFO - Horizon 09, MAE: 4.37, MAPE: 0.1984, RMSE: 6.18
+2019-06-14 13:36:12,601 - INFO - Horizon 10, MAE: 4.39, MAPE: 0.1996, RMSE: 6.20
+2019-06-14 13:36:12,664 - INFO - Horizon 11, MAE: 4.41, MAPE: 0.2004, RMSE: 6.21
+2019-06-14 13:36:12,726 - INFO - Horizon 12, MAE: 4.42, MAPE: 0.2010, RMSE: 6.23
+
+
+path start k=0 결과
+===
+2019-06-19 15:42:59,497 - INFO - Horizon 01, MAE: 2.98, MAPE: 0.1296, RMSE: 4.97
+2019-06-19 15:42:59,565 - INFO - Horizon 02, MAE: 3.53, MAPE: 0.1555, RMSE: 5.42
+2019-06-19 15:42:59,634 - INFO - Horizon 03, MAE: 3.85, MAPE: 0.1711, RMSE: 5.71
+2019-06-19 15:42:59,702 - INFO - Horizon 04, MAE: 4.06, MAPE: 0.1816, RMSE: 5.88
+2019-06-19 15:42:59,770 - INFO - Horizon 05, MAE: 4.18, MAPE: 0.1878, RMSE: 5.99
+2019-06-19 15:42:59,839 - INFO - Horizon 06, MAE: 4.26, MAPE: 0.1922, RMSE: 6.06
+2019-06-19 15:42:59,907 - INFO - Horizon 07, MAE: 4.31, MAPE: 0.1953, RMSE: 6.11
+2019-06-19 15:42:59,975 - INFO - Horizon 08, MAE: 4.34, MAPE: 0.1970, RMSE: 6.14
+2019-06-19 15:43:00,043 - INFO - Horizon 09, MAE: 4.37, MAPE: 0.1985, RMSE: 6.17
+2019-06-19 15:43:00,107 - INFO - Horizon 10, MAE: 4.39, MAPE: 0.1996, RMSE: 6.19
+2019-06-19 15:43:00,170 - INFO - Horizon 11, MAE: 4.41, MAPE: 0.2005, RMSE: 6.20
+2019-06-19 15:43:00,233 - INFO - Horizon 12, MAE: 4.42, MAPE: 0.2012, RMSE: 6.21
+
+
+path center k=0 결과
+===
+2019-06-19 19:45:20,091 - INFO - Horizon 01, MAE: 2.99, MAPE: 0.1299, RMSE: 4.97
+2019-06-19 19:45:20,158 - INFO - Horizon 02, MAE: 3.53, MAPE: 0.1556, RMSE: 5.43
+2019-06-19 19:45:20,225 - INFO - Horizon 03, MAE: 3.85, MAPE: 0.1710, RMSE: 5.71
+2019-06-19 19:45:20,292 - INFO - Horizon 04, MAE: 4.06, MAPE: 0.1813, RMSE: 5.88
+2019-06-19 19:45:20,359 - INFO - Horizon 05, MAE: 4.18, MAPE: 0.1877, RMSE: 5.99
+2019-06-19 19:45:20,427 - INFO - Horizon 06, MAE: 4.25, MAPE: 0.1920, RMSE: 6.06
+2019-06-19 19:45:20,494 - INFO - Horizon 07, MAE: 4.31, MAPE: 0.1952, RMSE: 6.12
+2019-06-19 19:45:20,561 - INFO - Horizon 08, MAE: 4.34, MAPE: 0.1970, RMSE: 6.15
+2019-06-19 19:45:20,628 - INFO - Horizon 09, MAE: 4.37, MAPE: 0.1984, RMSE: 6.18
+2019-06-19 19:45:20,690 - INFO - Horizon 10, MAE: 4.39, MAPE: 0.1996, RMSE: 6.20
+2019-06-19 19:45:20,752 - INFO - Horizon 11, MAE: 4.41, MAPE: 0.2004, RMSE: 6.21
+2019-06-19 19:45:20,814 - INFO - Horizon 12, MAE: 4.42, MAPE: 0.2011, RMSE: 6.23
+
+
+2019-06-20 17:04:14,423 - INFO - Horizon 01, MAE: 2.99, MAPE: 0.1299, RMSE: 4.97
+2019-06-20 17:04:14,490 - INFO - Horizon 02, MAE: 3.53, MAPE: 0.1556, RMSE: 5.42
+2019-06-20 17:04:14,556 - INFO - Horizon 03, MAE: 3.85, MAPE: 0.1711, RMSE: 5.70
+2019-06-20 17:04:14,622 - INFO - Horizon 04, MAE: 4.05, MAPE: 0.1816, RMSE: 5.88
+2019-06-20 17:04:14,688 - INFO - Horizon 05, MAE: 4.17, MAPE: 0.1880, RMSE: 5.98
+2019-06-20 17:04:14,755 - INFO - Horizon 06, MAE: 4.25, MAPE: 0.1924, RMSE: 6.06
+2019-06-20 17:04:14,821 - INFO - Horizon 07, MAE: 4.31, MAPE: 0.1956, RMSE: 6.11
+2019-06-20 17:04:14,888 - INFO - Horizon 08, MAE: 4.34, MAPE: 0.1974, RMSE: 6.14
+2019-06-20 17:04:14,954 - INFO - Horizon 09, MAE: 4.37, MAPE: 0.1989, RMSE: 6.17
+2019-06-20 17:04:15,017 - INFO - Horizon 10, MAE: 4.39, MAPE: 0.2001, RMSE: 6.18
+2019-06-20 17:04:15,080 - INFO - Horizon 11, MAE: 4.40, MAPE: 0.2010, RMSE: 6.20
+2019-06-20 17:04:15,142 - INFO - Horizon 12, MAE: 4.42, MAPE: 0.2017, RMSE: 6.21
+
+

@@ -1,0 +1,10 @@
+2023-01-02 08:04:14,481 - model.pytorch.dcrnn_supervisor - INFO - Log directory: data/model/dcrnn_DR_2_h_12_64-64_lr_0.01_bs_64_0102080414/
+2023-01-02 08:04:18,561 - model.pytorch.dcrnn_supervisor - INFO - Model created
+2023-01-02 08:04:18,562 - model.pytorch.dcrnn_supervisor - INFO - Start training ...
+2023-01-02 08:04:18,562 - model.pytorch.dcrnn_supervisor - INFO - num_batches:381
+2023-01-02 08:04:21,852 - model.pytorch.dcrnn_supervisor - INFO - Total trainable parameters 372353
+2023-01-02 08:53:06,862 - model.pytorch.dcrnn_supervisor - INFO - epoch complete
+2023-01-02 08:53:06,865 - model.pytorch.dcrnn_supervisor - INFO - evaluating now!
+2023-01-02 08:57:36,679 - model.pytorch.dcrnn_supervisor - INFO - Epoch [0/1000] (381) train_mae: 3.3287, val_mae: 4.5984, lr: 0.010000, 3198.1s
+2023-01-02 08:57:36,688 - model.pytorch.dcrnn_supervisor - INFO - Saved model at 0
+2023-01-02 08:57:36,688 - model.pytorch.dcrnn_supervisor - INFO - Val loss decrease from inf to 4.5984, saving to models/euclidean_best.tar

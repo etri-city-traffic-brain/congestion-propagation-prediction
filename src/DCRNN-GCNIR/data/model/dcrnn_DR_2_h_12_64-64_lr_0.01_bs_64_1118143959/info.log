@@ -1,0 +1,4 @@
+2021-11-18 14:39:59,694 - model.pytorch.dcrnn_supervisor - INFO - Log directory: data/model/dcrnn_DR_2_h_12_64-64_lr_0.01_bs_64_1118143959/
+2021-11-18 14:40:15,549 - model.pytorch.dcrnn_supervisor - INFO - Model created
+2021-11-18 14:40:15,549 - model.pytorch.dcrnn_supervisor - INFO - Start training ...
+2021-11-18 14:40:15,550 - model.pytorch.dcrnn_supervisor - INFO - num_batches:375
